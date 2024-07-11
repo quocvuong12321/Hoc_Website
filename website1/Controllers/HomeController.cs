@@ -42,5 +42,10 @@ namespace website1.Controllers
             return RedirectToAction("index");
         }
         
+
+        {
+            DanhSachNV.danhSachNhanVien.OrderByDescending(t => t.DiemThi).ToList();
+            return View("index");
+        }
     }
 }
