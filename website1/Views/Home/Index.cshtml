@@ -1,0 +1,37 @@
+﻿@model List<website1.Models.NhanVien>
+@{
+    ViewBag.Title = "Home";
+}
+
+<main>
+    <div class="container">
+        <h2>Danh sách nhân viên</h2>
+        <a href="~/home/sapXepTheoDiem">Sắp xếp theo điểm của nhân viên</a>
+        <br />
+        <a href="~/home/congdiemchonhanvien">Cộng mỗi nhân viên 0.5 điểm</a>
+        <br />
+        <a href="~/home/them1NVMoi">Thêm một nhân viên mới</a>
+
+        <table class="table table-danger">
+            <thead>
+                <tr>
+                    <td>Mã nhân viên</td>
+                    <td>Tên nhân viên</td>
+                    <td>Ngày sinh</td>
+                    <td>Điểm thi</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.MaNV</td>
+                        <td>@item.TenNV</td>
+                        <td>@item.NgaySinh.ToString("dd/MM/yyyy")</td>
+                        <td>@item.DiemThi</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</main>

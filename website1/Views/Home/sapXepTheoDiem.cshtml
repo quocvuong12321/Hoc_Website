@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "sapXepTheoDiem";
+}
+
+<main>
+    <div class="container">
+        <h2>Sắp xếp theo điểm của nhân viên</h2>
+        <table class="table table-danger">
+            <thead>
+                <tr>
+                    <td>Mã nhân viên</td>
+                    <td>Tên nhân viên</td>
+                    <td>Ngày sinh</td>
+                    <td>Điểm thi</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.MaNV</td>
+                        <td>@item.TenNV</td>
+                        <td>@item.NgaySinh.ToString("dd/MM/yyyy")</td>
+                        <td>@item.DiemThi</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</main>
+
