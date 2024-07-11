@@ -41,10 +41,6 @@ namespace website1.Controllers
             DanhSachNV.danhSachNhanVien.Add(new NhanVien(model.MaNV, model.TenNV, model.NgaySinh, model.DiemThi));
             return RedirectToAction("index");
         }
-        public ActionResult sapXepgiamDan()
-        {
-            DanhSachNV.danhSachNhanVien.OrderByDescending(t => t.DiemThi).ToList();
-            return View("index");
-        }
+
     }
 }
