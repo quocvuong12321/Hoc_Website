@@ -150,6 +150,7 @@
     <Content Include="Views\Home\sapXepTheoDiem.cshtml" />
     <Content Include="Views\Home\congDiemChoNhanVien.cshtml" />
     <Content Include="Views\Home\them1NVMoi.cshtml" />
+    <Content Include="Views\Home\xuatNVCoDiemCaoNhat.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

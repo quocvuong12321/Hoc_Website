@@ -16,7 +16,7 @@ namespace website1.Controllers
 
         public ActionResult Index()
         {
-            //themNV();
+            DanhSachNV.danhSachNhanVien = DanhSachNV.them5NV();
             return View(DanhSachNV.danhSachNhanVien);
         }
 
@@ -41,11 +41,10 @@ namespace website1.Controllers
             DanhSachNV.danhSachNhanVien.Add(new NhanVien(model.MaNV, model.TenNV, model.NgaySinh, model.DiemThi));
             return RedirectToAction("index");
         }
-        
-
+        public ActionResult xuatNVCoDiemCaoNhat()
         {
-            DanhSachNV.danhSachNhanVien.OrderByDescending(t => t.DiemThi).ToList();
-            return View("index");
+            NhanVien nv = DanhSachNV.danhSachNhanVien.FirstOrDefault(t => t.DiemThi == DanhSachNV.danhSachNhanVien.Max(a => a.DiemThi));
+            return View(nv);
         }
     }
 }
