@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "them";
+}
+
+<main>
+    <div class="container">
+        <h4>Thêm mới nhân viên</h4>
+        
+        <form action="~/home/luuthemmoi" method="post">
+            <div class="form-group">
+                <label>Mã Nhân Viên</label>
+                <input class="form-control" type="text" name="MaNV" />
+            </div>
+            <div class="form-group">
+                <label>Tên Nhân Viên</label>
+                <input class="form-control" type="text" name="TenNV" />
+            </div>
+            <div class="form-group">
+                <label>Ngày sinh</label>
+                <input class="form-control" type="date" name="NgaySinh" />
+            </div>
+            <div class="form-group">
+                <label>Điểm thi</label>
+                <input class="form-control" type="number" name="DiemThi" />
+            </div>
+            <button type="submit" class="btn btn-danger">Thêm</button>
+        </form>
+    </div>
+</main>

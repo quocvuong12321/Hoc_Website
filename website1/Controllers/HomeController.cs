@@ -16,7 +16,7 @@ namespace website1.Controllers
 
         public ActionResult Index()
         {
-            DanhSachNV.danhSachNhanVien = DanhSachNV.them5NV();
+            //DanhSachNV.danhSachNhanVien = DanhSachNV.them5NV();
             return View(DanhSachNV.danhSachNhanVien);
         }
 
@@ -31,6 +31,8 @@ namespace website1.Controllers
             DanhSachNV.danhSachNhanVien.ForEach(t => t.DiemThi += 0.5);
             return RedirectToAction("index") ;
         }
+        //-------------------------------------------------------------------------------------------
+        //tạo form nhập liệu tự động và lưu thông tin 
         public ActionResult them1NVMoi()
         {
             return View(new NhanVien());
@@ -41,10 +43,33 @@ namespace website1.Controllers
             DanhSachNV.danhSachNhanVien.Add(new NhanVien(model.MaNV, model.TenNV, model.NgaySinh, model.DiemThi));
             return RedirectToAction("index");
         }
+
+        //-------------------------------------------------------------------------------------------
+
         public ActionResult xuatNVCoDiemCaoNhat()
         {
             NhanVien nv = DanhSachNV.danhSachNhanVien.FirstOrDefault(t => t.DiemThi == DanhSachNV.danhSachNhanVien.Max(a => a.DiemThi));
             return View(nv);
         }
+
+
+
+
+        //-------------------------------------------------------------------------------------------
+        //tạo form nhập liệu và lưu thông tin bằng tay
+        public ActionResult them()
+        {
+            return View(new NhanVien());
+        }
+
+        [HttpPost]
+        public ActionResult LuuThemMoi(NhanVien nv)
+        {
+            //xử lý lưu
+            DanhSachNV.danhSachNhanVien.Add(new NhanVien(nv.MaNV,nv.TenNV,nv.NgaySinh,nv.DiemThi));
+            return RedirectToAction("index");
+        }
+
+        //-------------------------------------------------------------------------------------------
     }
 }
