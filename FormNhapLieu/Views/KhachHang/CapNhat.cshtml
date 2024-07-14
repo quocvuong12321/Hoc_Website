@@ -1,0 +1,77 @@
+﻿@model FormNhapLieu.Models.KhachHang
+
+@{
+    ViewBag.Title = "CapNhat";
+}
+
+<h2>CapNhat</h2>
+
+@using (Html.BeginForm("CapNhat", "KhachHang", FormMethod.Post, new {enctype = ("multipart/form-data")}))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>KhachHang</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            <label class="col-md-10">Tên khách hàng</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TenKH, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TenKH, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-10">Số điện thoại</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SoDT, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SoDT, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-10">Địa chỉ khách hàng</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DiaChiKH, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DiaChiKH, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-10">Email</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-10">Giới tính</label>
+            <div class="col-md-10">
+                    <input type="checkbox" name="m" value="Nam" />Nam
+                    <input type="checkbox" name="wm" value="Nữ" />Nữ
+                    <input type="checkbox" name="k" value="Khác" />Khác
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-10">Hình ảnh</label>
+            <div class="col-md-10">
+                <input type="file" class="form-check" name="fname" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-success" />
+            </div>
+        </div>  
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "danhsach")
+</div>

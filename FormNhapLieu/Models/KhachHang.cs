@@ -7,14 +7,7 @@ namespace FormNhapLieu.Models
 {
     public class KhachHang
     {
-        private int id;
-        string tenKH;
-        string soDT;
-        string diaChiKH;
-        string email;
-        string gioiTinh;
-
-        public KhachHang(int id, string tenKH, string soDT, string diaChiKH, string email, string gioiTinh)
+        public KhachHang(int id, string tenKH, string soDT, string diaChiKH, string email, string gioiTinh, string tenAnh)
         {
             Id = id;
             TenKH = tenKH;
@@ -22,16 +15,15 @@ namespace FormNhapLieu.Models
             DiaChiKH = diaChiKH;
             Email = email;
             GioiTinh = gioiTinh;
+            TenAnh = tenAnh;
         }
-
         public KhachHang() { }
-
-        public int Id { get => id; set => id = value; }
-        public string TenKH { get => tenKH; set => tenKH = value; }
-        public string SoDT { get => soDT; set => soDT = value; }
-        public string DiaChiKH { get => diaChiKH; set => diaChiKH = value; }
-        public string Email { get => email; set => email = value; }
-        public string GioiTinh { get => gioiTinh; set => gioiTinh = value; }
-
+        public int Id { get; set; }
+        public string TenKH { get; set; }
+        public string SoDT { get; set; }
+        public string DiaChiKH { get; set; }
+        public string Email { get; set; }
+        public string GioiTinh { get; set; }
+        public string TenAnh { get; set; }
     }
 }

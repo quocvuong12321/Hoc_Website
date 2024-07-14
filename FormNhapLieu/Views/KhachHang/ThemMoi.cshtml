@@ -7,7 +7,7 @@
 
 <div class="container">
     <h2>Thêm mới khách hàng</h2>
-    @using (Html.BeginForm("ThemMoi","KhachHang",FormMethod.Post))
+    @using (Html.BeginForm("ThemMoi","KhachHang",FormMethod.Post, new { enctype = "multipart/form-data"}))
     {
         @Html.AntiForgeryToken()
 
@@ -56,21 +56,21 @@
             <div class="form-group">
                 <label>Giới tính</label>
                 <div class="col-md-10">
-                    @*<select name="GioiTinh" class="form-control">
-                        <option value="Nam">Nam</option>
-                        <option value="Nữ">Nữ</option>
-                    </select>*@
-                    <input type="radio" name="GioiTinh" value="Nam" />Nam
-                    <input type="radio" name="GioiTinh" value="Nữ"/>Nữ
-
+                    <input type="checkbox" name="m" value="Nam" />Nam
+                    <input type="checkbox" name="wm" value="Nữ" />Nữ
+                    <input type="checkbox" name="k" value="Khác" />Khác
                 </div>
+                
             </div>
-
+            <div class="form-group">
+                <input type="file" class="form-check" name="fname" />
+            </div>
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Create" class="btn btn-success" />
                 </div>
             </div>
+            
         </div>
     }
 
