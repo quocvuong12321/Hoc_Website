@@ -1,0 +1,72 @@
+﻿@model KetNoiDenDataBase.Models.KHACHANG
+
+@{
+    ViewBag.Title = "Xoa";
+}
+
+<h2>Xoa</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>KHACHANG</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TENKH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TENKH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SODT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SODT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DIACHI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DIACHI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMAIL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMAIL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GIOITINH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GIOITINH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TENANH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TENANH)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

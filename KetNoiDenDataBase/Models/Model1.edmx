@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="KhachHangModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="KHACHANG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="TENKH" Type="nvarchar" MaxLength="50" />
+          <Property Name="SODT" Type="nchar" MaxLength="12" />
+          <Property Name="DIACHI" Type="nvarchar" MaxLength="50" />
+          <Property Name="EMAIL" Type="nchar" MaxLength="50" />
+          <Property Name="GIOITINH" Type="nvarchar" MaxLength="3" />
+          <Property Name="TENANH" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MAYTINH">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="TENMT" Type="nvarchar" MaxLength="50" />
+          <Property Name="HANGSX" Type="nvarchar" MaxLength="50" />
+          <Property Name="NAMSANXUAT" Type="int" />
+        </EntityType>
+        <EntityContainer Name="KhachHangModelStoreContainer">
+          <EntitySet Name="KHACHANG" EntityType="Self.KHACHANG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MAYTINH" EntityType="Self.MAYTINH" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KhachHangModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="KHACHANG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="TENKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SODT" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
+          <Property Name="DIACHI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="GIOITINH" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="TENANH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MAYTINH">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="TENMT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HANGSX" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NAMSANXUAT" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="KhachHangEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="KHACHANGs" EntityType="Self.KHACHANG" />
+          <EntitySet Name="MAYTINHs" EntityType="Self.MAYTINH" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KhachHangModelStoreContainer" CdmEntityContainer="KhachHangEntities">
+          <EntitySetMapping Name="KHACHANGs">
+            <EntityTypeMapping TypeName="KhachHangModel.KHACHANG">
+              <MappingFragment StoreEntitySet="KHACHANG">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TENKH" ColumnName="TENKH" />
+                <ScalarProperty Name="SODT" ColumnName="SODT" />
+                <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="GIOITINH" ColumnName="GIOITINH" />
+                <ScalarProperty Name="TENANH" ColumnName="TENANH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MAYTINHs">
+            <EntityTypeMapping TypeName="KhachHangModel.MAYTINH">
+              <MappingFragment StoreEntitySet="MAYTINH">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TENMT" ColumnName="TENMT" />
+                <ScalarProperty Name="HANGSX" ColumnName="HANGSX" />
+                <ScalarProperty Name="NAMSANXUAT" ColumnName="NAMSANXUAT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
