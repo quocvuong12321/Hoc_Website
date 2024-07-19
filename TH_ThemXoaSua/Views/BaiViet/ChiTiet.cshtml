@@ -1,0 +1,96 @@
+﻿@model TH_ThemXoaSua.Models.BaiViet
+
+@{
+    ViewBag.Title = "ChiTiet";
+}
+
+<h2>ChiTiet</h2>
+
+<div>
+    <h4>BaiViet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TENBAIVIET)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TENBAIVIET)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MOTA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MOTA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYVIET)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYVIET)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGUOIVIET)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGUOIVIET)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HINHANH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HINHANH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HIENTHI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HIENTHI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.THUTU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.THUTU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoaiBaiViet.TENLOAI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiBaiViet.TENLOAI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOIDUNG)
+        </dt>
+
+        <dd>
+                @Html.Raw(Model.NOIDUNG)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "DanhSach")
+</p>
+
+@section scripts{
+    <script>
+        CKEDITOR.replace('inputND')
+    </script>
+}

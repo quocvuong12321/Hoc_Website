@@ -1,0 +1,50 @@
+﻿@model IEnumerable<TH_ThemXoaSua.Models.LoaiBaiViet>
+
+@{
+    ViewBag.Title = "Danh sách loại bài viết";
+}
+
+<div class="container" style="margin:100px 0px">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Danh sách loại bài viết</h2>
+            <p>
+                @Html.ActionLink("Create New", "ThemMoi")
+            </p>
+            <table class="table table-bordered">
+                <thead class="bg-info">
+                    <tr>
+                        <th>
+                            <label>Tên loại bài viết</label>
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TENLOAI)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "CapNhat", new { id = item.ID }) |
+                                <a onclick="xoaLBV(@item.ID)">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        var xoaLBV = function (IDlbv) {
+            if (confirm("Bạn có muốn xóa hay không?")) {
+                location.href = '/LoaiBaiViet/Xoa?ID=' + IDlbv
+            }
+        }
+    </script>
+    }

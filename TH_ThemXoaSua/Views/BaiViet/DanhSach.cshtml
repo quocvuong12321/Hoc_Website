@@ -1,0 +1,73 @@
+﻿@model IEnumerable<TH_ThemXoaSua.Models.BaiViet>
+
+@{
+    ViewBag.Title = "DanhSach";
+}
+
+
+<div class="container">
+
+    <h2>Danh Sách bài viết</h2>
+    <p>
+        @Html.ActionLink("Tạo mới", "ThemMoi")
+    </p>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    Tên bài viết
+                </th>
+                <th>
+                    Ngày viết
+                </th>
+                <th>
+                    Người viết
+                </th>
+                <th>
+                    Hiển thị
+                </th>
+                <th>
+                    Loại
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TENBAIVIET)
+                    </td>
+                    <td>
+                        @String.Format("{0:dd/MM/yyyy}",item.NGAYVIET)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NGUOIVIET)
+                    </td>
+                    <td>
+                        @item.HIENTHI
+                    </td>
+                    <td>
+                        @item.LoaiBaiViet.TENLOAI
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "ChinhSua", new { id = item.ID }) |
+                        @Html.ActionLink("Details", "ChiTiet", new { id = item.ID }) |
+                        <a onclick="Xoa(@item.ID)">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section scripts{
+    <script>
+        var Xoa = function (idbv) {
+            if (confirm("Bạn có muốn xóa hay không?")) {
+                location.href = "/BaiViet/Xoa?ID=" + idbv
+            }
+        }
+    </script>
+    }
